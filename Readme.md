@@ -1,47 +1,75 @@
 # 2025 MBDS project PixelBoard
 
-## Introduction
-this is a mono-repo project for the 2025 MBDS project PixelBoard. It contains the following packages:
-- `client`: the frontend of the project
-- `api`: the backend of the project
+Skeleton monorepo pour le projet MBDS 2025. Il contient deux packages :
 
-You can use this skeleton to start your project.    
-You have to edit the root package.json file : 
-- replace the name property (replace xxxx by the first letter of each member of your group)
-- set the repository by setting the url of your project  
+- `packages/client` — frontend React + Vite
+- `packages/api` — backend Express.js
 
+## Première configuration
+
+Avant de commencer, éditez le fichier `package.json` à la racine :
+
+- `name` : remplacez `xxxx` par les initiales des membres du groupe
+- `repository` : renseignez l'URL de votre dépôt Git
 
 ## Installation
-To install the project, you need to clone the repository and install the dependencies. You can do this by running the following commands in the root directory of the project:
-``` js
+
+Dans le répertoire racine du projet :
+
+```bash
 yarn
 ```
 
-## Usage
-To start the project, you need to run the following commands in the root directory of the project (in two separate terminals):
-``` js
-yarn start:client 
-```
-*call start script in ./packages/client package.json (to start the react client)*  
+## Lancer le projet
 
-``` js
-yarn start:api 
-```
-*call start script in ./packages/api package.json (to start the api)*
+### Les deux en même temps (recommandé)
 
-
-## Adding libraries
-
-If you want to add library you can use the following commands (in the root directory of the project) :
-``` js
-yarn workspace <client|api> add <package-name> 
-```
-For example to add `express` to the api package you can run:
-``` js
-yarn workspace api add express
+```bash
+yarn start
 ```
 
-For example to add a librairy for devDependencies to the client package you can run:
-``` js
-yarn workspace client add -D <package-name>
+### Séparément (dans deux terminaux distincts)
+
+```bash
+yarn start:client   # Lance le serveur de développement React (Vite)
+yarn start:api      # Lance le serveur Express
+```
+
+| Service | URL par défaut       |
+| ------- | --------------------- |
+| Client  | http://localhost:5173 |
+| API     | http://localhost:8000 |
+
+## Structure du projet
+
+```
+packages/
+├── client/    
+│   └── src/
+│       ├── main.jsx
+│       └── App.jsx
+└── api/           # Express 4
+    ├── index.js       # Point d'entrée, configure le serveur
+    ├── api.js         # Routeur principal (/api)
+    ├── routes/        # Définition des routes HTTP
+    └── services/      # Logique métier
+```
+
+## Ajouter une dépendance
+
+```bash
+# Dépendance de production dans le client
+yarn workspace client add <package>
+
+# Dépendance de production dans l'api
+yarn workspace api add <package>
+
+# Dépendance de développement
+yarn workspace client add -D <package>
+```
+
+## Linter
+
+```bash
+yarn lint   # Vérifie client et api
 ```

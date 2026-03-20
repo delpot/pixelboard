@@ -1,14 +1,52 @@
-# API
+# API — Express.js
 
-## Structure of the API is as follows:
-- routes : 
-handle the incoming requests and send the response back to the client, use the services (controllers) to do the job (insert data in the database, retrieve data from the database, etc.)
+## Structure
 
-- services (controllers) :
-handle the business logic, use the models to interact with the database
+```
+api/
+├── index.js        # Point d'entrée : configure et démarre le serveur Express
+├── api.js          # Routeur principal, monte les sous-routes sous /api
+├── routes/         # Couche HTTP — reçoit les requêtes, appelle les services
+│   └── article.js
+└── services/       # Logique métier — traitement des données
+    └── article.js
+```
 
-- index.js
-entry point of the API, launch the express server
+## Architecture
 
-- api.js
-import and expose the differents routes
+```
+Requête HTTP
+    │
+    ▼
+index.js  (Express, CORS, JSON parsing)
+    │
+    ▼
+api.js  (/api)
+    │
+    ▼
+routes/*.js  (GET /api/articles, POST /api/articles, ...)
+    │
+    ▼
+services/*.js  (logique métier, accès aux données)
+```
+
+## Routes disponibles
+
+| Méthode | Route           | Description              |
+|---------|-----------------|--------------------------|
+| GET     | /               | Health check             |
+| GET     | /api            | Info API                 |
+| GET     | /api/articles   | Liste tous les articles  |
+| POST    | /api/articles   | Crée un nouvel article   |
+
+## Lancer l'API
+
+```bash
+yarn start   # Node avec --watch (redémarre automatiquement)
+```
+
+## Ajouter une ressource
+
+1. Créer `services/maRessource.js` avec la logique métier
+2. Créer `routes/maRessource.js` avec les routes HTTP
+3. Monter la route dans `api.js`
