@@ -7,7 +7,7 @@ build/
 dist/
 
 # ide
-.vscode
+.vscode/
 
 # misc
 .DS_Store
@@ -20,4 +20,3 @@ dist/
 cdk.out
 
 *.private.md
-.vscode/
