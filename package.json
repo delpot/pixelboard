@@ -1,9 +1,9 @@
 {
-	"name": "2025-project-xxxx",
+	"name": "2025-project-dp",
 	"version": "0.0.1",
 	"description": "MBDS project 2025",
 	"main": "index.js",
-	"repository": "https://github.com/ACOUNT/2025-project-xxxx",
+	"repository": "https://github.com/delpot/pixelboard",
 	"author": "xxx xxx xxx xxx",
 	"license": "MIT",
 	"private": true,

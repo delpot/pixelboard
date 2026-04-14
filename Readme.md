@@ -1,16 +1,13 @@
-# 2025 MBDS project PixelBoard
+# PixelBoard
 
-Skeleton monorepo pour le projet MBDS 2025. Il contient deux packages :
+Application de pixel art collaboratif. Il contient deux packages :
 
 - `packages/client` — frontend React + Vite
 - `packages/api` — backend Express.js
 
-## Première configuration
+# Projet M2 MBDS
 
-Avant de commencer, éditez le fichier `package.json` à la racine :
-
-- `name` : remplacez `xxxx` par les initiales des membres du groupe
-- `repository` : renseignez l'URL de votre dépôt Git
+POTHIN Delphine (https://github.com/delpot)
 
 ## Installation
 
@@ -35,7 +32,7 @@ yarn start:client   # Lance le serveur de développement React (Vite)
 yarn start:api      # Lance le serveur Express
 ```
 
-| Service | URL par défaut       |
+| Service | URL par défaut        |
 | ------- | --------------------- |
 | Client  | http://localhost:5173 |
 | API     | http://localhost:8000 |
@@ -44,7 +41,7 @@ yarn start:api      # Lance le serveur Express
 
 ```
 packages/
-├── client/    
+├── client/
 │   └── src/
 │       ├── main.jsx
 │       └── App.jsx
